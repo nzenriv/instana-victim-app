@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  victim-app:
+    build: .
+    image: victim-app:latest
+    container_name: victim-app
+    environment:
+      - INSTANA_AGENT_HOST=172.17.0.1  # Apunta al Host donde está el agente
+    ports:
+      - "80:3000"  # Exponemos en el puerto 80 para facilitar el acceso
+    restart: always
